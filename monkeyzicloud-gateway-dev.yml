@@ -1,0 +1,40 @@
+spring: 
+  http:
+    encoding: 
+      charset: UTF-8
+      force: true
+      enabled: true
+    multipart: 
+      enabled: true
+      max-request-size: 50MB
+      max-file-size: 50MB
+zuul:
+  host: 
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  foceOriginalQueryStringEncoding: true
+  routes:
+    ucloud-route:
+       path: /ucloud/**
+       sensitiveHeaders: 
+       service-id: monkeyzicloud-provider-ucloud
+       ribbon: 
+         eager-load: 
+           enabled: true
+         MaxAutoRetries: 1
+         MaxAutoRetriesNextServer: 2
+         OkToRetryOnAllOperations: false
+         ConnectTimeout: 10000
+         ReadTimeout: 10000
+  add-proxy-headers: true
+  add-host-headers: true
+
+
+swagger.butler:
+  api-docs-path: v2/api-docs
+  swagger-version: 1.0
+  auto-generate-from-zuul-routes: true
+  #指定生成的范围
+  generate-routes: ucloud-route
+  
+ 
