@@ -4,6 +4,10 @@ spring:
       charset: UTF-8
       force: true
       enabled: true
+    multipart: 
+      enabled: true
+      max-request-size: 50MB
+      max-file-size: 50MB
 zuul:
   host: 
     socket-timeout-millis: 60000
@@ -26,5 +30,11 @@ zuul:
   add-host-headers: true
 
 
+swagger.butler:
+  api-docs-path: v2/api-docs
+  swagger-version: 1.0
+  auto-generate-from-zuul-routes: true
+  #指定生成的范围
+  generate-routes: ucloud-route
   
  
