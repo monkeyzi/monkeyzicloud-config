@@ -1,9 +1,3 @@
-spring: 
-  http:
-    encoding: 
-      charset: UTF-8
-      force: true
-      enabled: true
 zuul:
   host: 
     socket-timeout-millis: 60000
