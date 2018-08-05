@@ -32,4 +32,7 @@ security:
       prefer-token-info: false
       jwt:
          key-uri: http://monkeyzicloud-provider-ucloud:8081/oauth/token_key
-   
+proxy:
+  auth:
+    routes:
+      ucloud-route: oauth2
