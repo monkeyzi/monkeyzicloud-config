@@ -5,7 +5,8 @@ spring:
     joda-date-time-format: yyyy-MM-dd HH:mm:ss
     date-format: yyyy-MM-dd HH:mm:ss
 
-
+  datasource:
+    url: jdbc:mysql://localhost:3306/monkeyzicloud-ucloud?characterEncoding=utf8&useSSL=false
   
 mybatis:
   type-aliases-package: com.gaoyg.monkeyzicloud.provider.ucloud.model.domain
