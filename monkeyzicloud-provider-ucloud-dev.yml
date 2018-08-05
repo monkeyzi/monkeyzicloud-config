@@ -1,25 +1,58 @@
-hh: nihao
-zuul:
-  host: 
-    socket-timeout-millis: 60000
-    connect-timeout-millis: 60000
-  foceOriginalQueryStringEncoding: true
-  routes:
-    ucloud-route:
-       path: /ucloud/**
-       sensitiveHeaders: 
-       service-id: monkeyzicloud-provider-ucloud
-       ribbon: 
-         eager-load: 
-           enabled: true
-         MaxAutoRetries: 1
-         MaxAutoRetriesNextServer: 2
-         OkToRetryOnAllOperations: false
-         ConnectTimeout: 10000
-         ReadTimeout: 10000
-  add-proxy-headers: true
-  add-host-headers: true
+spring:
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+  jackson:
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
 
 
   
- 
+mybatis:
+  type-aliases-package: com.gaoyg.monkeyzicloud.provider.ucloud.model.domain
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+mapper:
+  mappers: com.gaoyg.monkeyzicloud.commom.core.mybatis.MyMapper
+  not-empty: false
+  identity: MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+security:
+  oauth2:
+    client:
+      clientId: monkeyzicloud-client-ucloud
+      clientSecret: monkeyzicloudClientSecret
+      access-token-uri: http://localhost:8765/ucloud/oauth/token
+      user-authorization-uri: http://localhost:8765/ucloud/oauth/authorize
+    resource:
+      id: monkeyzicloud-resource-ucloud
+      filter-order: 3
+
+
+monkeyzicloud:
+  enableSqlLogInterceptor: false
+  token:
+    interceptor:
+      enable: true
+  oauth2:
+    jwtSigningKey: monkeyzicloud
+    client:
+      id: ${security.oauth2.resource.id}
+      accessTokenUrl: ${security.oauth2.client.access-token-uri}
+      clientId: ${security.oauth2.client.clientId}
+      clientSecret: ${security.oauth2.client.clientSecret}
+      clientAuthenticationScheme: header
+  security:
+    oauth2:
+      tokenStore: jwt
+      clients[0]:
+        clientId: monkeyzicloud-client-ucloud
+        clientSecret: monkeyzicloudClientSecret
+        accessTokenValidateSeconds: 7200
+        scope: "*"
+     
