@@ -31,5 +31,5 @@ security:
       user-info-uri: http://localhost:8765/ucloud/user
       prefer-token-info: false
       jwt:
-      key-uri: http://monkeyzicloud-provider-ucloud:8081/oauth/token_key
+         key-uri: http://monkeyzicloud-provider-ucloud:8081/oauth/token_key
    
