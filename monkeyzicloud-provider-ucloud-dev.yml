@@ -7,6 +7,8 @@ spring:
 
   datasource:
     url: jdbc:mysql://localhost:3306/monkeyzicloud-ucloud?characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
   
 mybatis:
   type-aliases-package: com.gaoyg.monkeyzicloud.provider.ucloud.model.domain
