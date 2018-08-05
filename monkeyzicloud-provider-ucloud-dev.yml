@@ -27,8 +27,8 @@ security:
     client:
       clientId: monkeyzicloud-client-ucloud
       clientSecret: monkeyzicloudClientSecret
-      access-token-uri: http://monkeyzicloud-gateway:8765/ucloud/oauth/token
-      user-authorization-uri: http://monkeyzicloud-gateway:8765/ucloud/oauth/authorize
+      accessTokenUri: http://localhost:8765/ucloud/oauth/token
+      userAuthorizationUri: http://localhost:8765/ucloud/oauth/authorize
     resource:
       id: monkeyzicloud-resource-ucloud
       filter-order: 3
