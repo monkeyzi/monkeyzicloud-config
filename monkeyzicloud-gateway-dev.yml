@@ -19,20 +19,3 @@ zuul:
          ReadTimeout: 10000
   add-proxy-headers: true
   add-host-headers: true
-
-security:
-  oauth2:
-    client:
-      clientId: monkeyzicloud-client-gateway
-      clientSecret: monkeyzicloudClientSecret
-      access-token-uri: http://localhost:8765/ucloud/oauth/token
-      user-authorization-uri: http://localhost:8765/ucloud/oauth/authorize
-    resource:
-      user-info-uri: http://localhost:8765/ucloud/user
-      prefer-token-info: false
-      jwt:
-         key-uri: http://monkeyzicloud-provider-ucloud:8081/oauth/token_key
-proxy:
-  auth:
-    routes:
-      ucloud-route: oauth2
