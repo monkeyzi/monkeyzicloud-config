@@ -20,3 +20,8 @@ spring:
         allow:
           login-username: admin
           login-password: admin
+monkeyzicloud:
+  auth:
+    jwt:
+      expiredRemainMinutes: 20
+      expiredMinutes: 120
