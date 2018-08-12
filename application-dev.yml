@@ -3,7 +3,7 @@ spring:
     host: 127.0.0.1
     password: 
     port: 6379
-    timeout: 0
+    timeout: 5000
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat,wall
